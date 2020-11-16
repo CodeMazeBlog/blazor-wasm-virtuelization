@@ -1,0 +1,42 @@
+﻿@if (Products.Any())
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col"></th>
+				<th scope="col">Name</th>
+				<th scope="col">ItemNumber</th>
+				<th scope="col">Supplier</th>
+				<th scope="col">Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var product in Products)
+			{
+				<tr>
+					<td>
+						<img src="@product.ImageUrl" alt="product image" style="width:100px;" />
+					</td>
+					<td class="align-middle" style="max-width:100px">
+						@product.Name
+					</td>
+					<td class="align-middle" style="max-width:200px">
+						@product.ItemNumber
+					</td>
+					<td class="align-middle">
+						@product.Supplier
+					</td>
+					<td class="align-middle">
+						$@product.Price
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<span>
+		Loading products...
+	</span>
+}

@@ -1,0 +1,41 @@
+﻿<table class="table">
+	<thead>
+		<tr>
+			<th scope="col"></th>
+			<th scope="col">Name</th>
+			<th scope="col">ItemNumber</th>
+			<th scope="col">Supplier</th>
+			<th scope="col">Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		<Virtualize ItemsProvider="LoadProducts" Context="product" ItemSize="300">
+			<ItemContent>
+				<tr>
+					<td>
+						<img src="@product.ImageUrl" alt="product image" style="width:100px;" />
+					</td>
+					<td class="align-middle" style="max-width:100px">
+						@product.Name
+					</td>
+					<td class="align-middle" style="max-width:200px">
+						@product.ItemNumber
+					</td>
+					<td class="align-middle">
+						@product.Supplier
+					</td>
+					<td class="align-middle">
+						$@product.Price
+					</td>
+				</tr>
+			</ItemContent>
+			<Placeholder>
+				<tr>
+					<td>
+						Loading item...
+					</td>
+				</tr>
+			</Placeholder>
+		</Virtualize>
+	</tbody>
+</table>
